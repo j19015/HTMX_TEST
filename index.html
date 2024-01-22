@@ -4,9 +4,25 @@
         <meta charset="utf-8">
         <title>HTMX_TEST</title>
         <meta name="description" content="HTMXのテスト用webページです。">
+        <!-- 下記のCDNの記述を追加 -->
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     </head>
     <body>
-        コンテンツ
+        <!-- 通常の埋め込みのJavascript-->
+        <a href="#" onclick="ajax">クリック</a>
+        <div id="result">結果</div>
+        <script>
+        async function ajax() {
+            const result = document.querySelector("#result");
+            try {
+            const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+            result.innerHTML = await res.text();
+            } catch (e) {
+            result.innerHTML = e.message;
+            }
+        }
+        </script>
+        
+        <div id="result">Loading...</div>
     </body>
 </html>
