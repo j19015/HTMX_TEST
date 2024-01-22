@@ -22,6 +22,11 @@
             }
         }
         </script>
+
+        <!-- HTMX記法 -->
+        <a href="#" hx-get="https://jsonplaceholder.typicode.com/todos/1" hx-trigger="click" hx-target="#result">
+            Click here to load content
+        </a>
         
         <div id="result">Loading...</div>
     </body>
